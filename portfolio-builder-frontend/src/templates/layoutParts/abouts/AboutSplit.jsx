@@ -6,7 +6,7 @@ const AboutSplit = ({ data, style }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
           <h2 className="text-3xl font-bold mb-6">About Me</h2>
-          <p className="text-lg leading-relaxed">{data.about}</p>
+          <p className="text-lg leading-relaxed">{data.about_text}</p>
         </div>
         <div className="card bg-base-100 shadow-xl" style={style}>
           <div className="card-body">
@@ -15,7 +15,7 @@ const AboutSplit = ({ data, style }) => {
               {data.skills.slice(0, 5).map((skill, index) => (
                 <li key={index} className="flex items-center gap-2">
                   <div className="badge badge-primary badge-sm"></div>
-                  {skill}
+                  {skill.name}
                 </li>
               ))}
             </ul>
