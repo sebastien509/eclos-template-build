@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Template1 from "../templates/Template1";
+import MockPortfolioData, { mockUser } from "../mock/MockPortfolioData";
 
 const PortfolioPreview = () => {
   const [theme, setTheme] = useState("theme-1");
@@ -11,52 +12,8 @@ const PortfolioPreview = () => {
     cardStyle: "style1",
   });
 
-  const portfolio = {
-    name: "John Doe",
-    title: "Full Stack Developer",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
-    about:
-      "Passionate developer with experience in React and modern web technologies. I specialize in building scalable web applications and have a strong foundation in both frontend and backend development.",
-    skills: [
-      "React",
-      "JavaScript",
-      "Node.js",
-      "TypeScript",
-      "Python",
-      "MongoDB",
-      "PostgreSQL",
-      "Docker",
-    ],
-    projects: [
-      {
-        title: "E-Commerce Platform",
-        description:
-          "A full-stack e-commerce application built with React, Node.js, and MongoDB. Features include user authentication, product management, shopping cart, and payment integration.",
-        image:
-          "https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so",
-        technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-        url: "https://github.com/example/ecommerce",
-      },
-      {
-        title: "Task Management App",
-        description:
-          "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-        image:
-          "https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so",
-        technologies: ["React", "Firebase", "Material-UI"],
-        url: "https://github.com/example/taskapp",
-      },
-      {
-        title: "Portfolio Builder",
-        description:
-          "A dynamic portfolio builder that allows users to create and customize their professional portfolios with various templates and themes.",
-        image:
-          "https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so",
-        technologies: ["React", "Tailwind CSS", "DaisyUI"],
-        url: "https://github.com/example/portfoliobuilder",
-      },
-    ],
-  };
+  // You can use mockUser if you want to display user info somewhere
+  // Example: mockUser.name, mockUser.email, mockUser.sector
 
   return (
     <div className="flex flex-col gap-4">
@@ -111,10 +68,7 @@ const PortfolioPreview = () => {
         <select
           value={sectionOptions.cardStyle}
           onChange={(e) =>
-            setSectionOptions({
-              ...sectionOptions,
-              cardStyle: e.target.value,
-            })
+            setSectionOptions({ ...sectionOptions, cardStyle: e.target.value })
           }
         >
           <option value="style1">Style 1</option>
@@ -123,11 +77,18 @@ const PortfolioPreview = () => {
         </select>
       </div>
 
+      {/* Example usage of mockUser (optional): */}
+      {/* <div className="text-center text-gray-500 text-sm">{mockUser.name} &lt;{mockUser.email}&gt; - {mockUser.sector}</div> */}
+
       <Template1
-        portfolio={portfolio}
+        portfolio={MockPortfolioData}
         theme={theme}
         font={font}
-        section_options={sectionOptions}
+        section_options={{
+          ...sectionOptions,
+          projects: sectionOptions.layout,
+          projectStyle: sectionOptions.cardStyle,
+        }}
       />
     </div>
   );

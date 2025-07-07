@@ -7,7 +7,7 @@ const HeaderMinimal = ({ data }) => {
       <div className="navbar-center">
         <div className="text-center">
           <h1 className="text-4xl font-light">{data.name}</h1>
-          <p className="text-lg opacity-80">{data.title}</p>
+          <p className="text-lg opacity-80">{data.sector}</p>
         </div>
       </div>
       <div className="navbar-end"></div>

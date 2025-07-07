@@ -22,26 +22,27 @@ const ProjectCardStyle3 = ({ project }) => {
     >
       <figure className="relative">
         <img
-          src={project.image}
+          src={project.preview_image}
           alt={project.title}
           className="w-full h-48 object-cover"
         />
-        <div className="absolute top-2 right-2 flex flex-wrap gap-1">
-          {project.technologies &&
-            project.technologies.map((tech, techIndex) => (
+        {project.technologies && (
+          <div className="absolute top-2 right-2 flex flex-wrap gap-1">
+            {project.technologies.map((tech, techIndex) => (
               <div key={techIndex} className="badge badge-accent badge-sm">
                 {tech}
               </div>
             ))}
-        </div>
+          </div>
+        )}
       </figure>
       <div className="card-body">
         <h3 className="card-title text-lg font-bold">{project.title}</h3>
         <p className="text-sm opacity-80 mb-2">{project.description}</p>
         <div className="card-actions justify-end mt-2">
-          {project.url && (
+          {project.github_link && (
             <a
-              href={project.url}
+              href={project.github_link}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary btn-sm"

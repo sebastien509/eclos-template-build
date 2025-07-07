@@ -8,7 +8,7 @@ const AboutGrid = ({ data, style }) => {
         <div className="card bg-base-100 shadow-xl" style={style}>
           <div className="card-body">
             <h3 className="card-title">Background</h3>
-            <p className="leading-relaxed">{data.about}</p>
+            <p className="leading-relaxed">{data.about_text}</p>
           </div>
         </div>
         <div className="card bg-base-100 shadow-xl">
@@ -17,7 +17,7 @@ const AboutGrid = ({ data, style }) => {
             <div className="flex flex-wrap gap-2">
               {data.skills.map((skill, index) => (
                 <div key={index} className="badge badge-primary">
-                  {skill}
+                  {skill.name}
                 </div>
               ))}
             </div>

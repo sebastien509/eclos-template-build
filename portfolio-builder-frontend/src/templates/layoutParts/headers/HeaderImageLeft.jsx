@@ -4,10 +4,10 @@ const HeaderImageLeft = ({ data }) => {
   return (
     <div className="navbar">
       <div className="navbar-start">
-        {data.image && (
+        {data.header_image && (
           <div className="avatar">
             <div className="w-24 rounded-full">
-              <img src={data.image} alt={data.name} />
+              <img src={data.header_image} alt={data.name} />
             </div>
           </div>
         )}
@@ -15,7 +15,7 @@ const HeaderImageLeft = ({ data }) => {
       <div className="navbar-center">
         <div>
           <h1 className="text-4xl font-bold">{data.name}</h1>
-          <p className="text-lg opacity-80">{data.title}</p>
+          <p className="text-lg opacity-80">{data.sector}</p>
         </div>
       </div>
       <div className="navbar-end"></div>
