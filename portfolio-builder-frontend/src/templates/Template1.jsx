@@ -6,9 +6,7 @@ import AboutGrid from "./layoutParts/abouts/AboutGrid";
 import AboutCard from "./layoutParts/abouts/AboutCard";
 import AboutSplit from "./layoutParts/abouts/AboutSplit";
 
-import ProjectGrid from "./layoutParts/projects/ProjectsGrid";
-import ProjectCarousel from "./layoutParts/projects/ProjectCarousel";
-import ProjectStacked from "./layoutParts/projects/ProjectStacked";
+import ProjectsSection from "../components/ProjectsSection";
 
 const themes = {
   "theme-1": {
@@ -96,7 +94,8 @@ const Template1 = ({
   const {
     header = "variant1",
     about = "grid",
-    projects = "grid",
+    layout = "grid",
+    cardStyle = "style1",
   } = section_options;
   const themeStyle = themes[theme] || themes["theme-1"];
 
@@ -125,14 +124,14 @@ const Template1 = ({
   };
 
   const renderProjects = () => {
-    switch (projects) {
-      case "carousel":
-        return <ProjectCarousel data={portfolio} style={glassStyle} />;
-      case "stacked":
-        return <ProjectStacked data={portfolio} style={glassStyle} />;
-      default:
-        return <ProjectGrid data={portfolio} style={glassStyle} />;
-    }
+
+    return (
+      <ProjectsSection
+        layout={layout}
+        cardStyle={cardStyle}
+        portfolio={portfolio}
+      />
+    );
   };
 
   return (
