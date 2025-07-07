@@ -7,7 +7,8 @@ const PortfolioPreview = () => {
   const [sectionOptions, setSectionOptions] = useState({
     header: "variant1",
     about: "card",
-    projects: "grid",
+    layout: "grid",
+    cardStyle: "style1",
   });
 
   const portfolio = {
@@ -31,7 +32,8 @@ const PortfolioPreview = () => {
         title: "E-Commerce Platform",
         description:
           "A full-stack e-commerce application built with React, Node.js, and MongoDB. Features include user authentication, product management, shopping cart, and payment integration.",
-        image: "https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so",
+        image:
+          "https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so",
         technologies: ["React", "Node.js", "MongoDB", "Stripe"],
         url: "https://github.com/example/ecommerce",
       },
@@ -39,7 +41,8 @@ const PortfolioPreview = () => {
         title: "Task Management App",
         description:
           "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-        image: "https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so",
+        image:
+          "https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so",
         technologies: ["React", "Firebase", "Material-UI"],
         url: "https://github.com/example/taskapp",
       },
@@ -47,7 +50,8 @@ const PortfolioPreview = () => {
         title: "Portfolio Builder",
         description:
           "A dynamic portfolio builder that allows users to create and customize their professional portfolios with various templates and themes.",
-        image: "https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so",
+        image:
+          "https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so",
         technologies: ["React", "Tailwind CSS", "DaisyUI"],
         url: "https://github.com/example/portfoliobuilder",
       },
@@ -94,14 +98,28 @@ const PortfolioPreview = () => {
         </select>
 
         <select
-          value={sectionOptions.projects}
+          value={sectionOptions.layout}
           onChange={(e) =>
-            setSectionOptions({ ...sectionOptions, projects: e.target.value })
+            setSectionOptions({ ...sectionOptions, layout: e.target.value })
           }
         >
-          <option value="grid">Grid Projects</option>
-          <option value="carousel">Carousel Projects</option>
-          <option value="stacked">Stacked Projects</option>
+          <option value="grid">Grid Layout</option>
+          <option value="stack">Stack Layout</option>
+          <option value="flex">Flex Layout</option>
+        </select>
+
+        <select
+          value={sectionOptions.cardStyle}
+          onChange={(e) =>
+            setSectionOptions({
+              ...sectionOptions,
+              cardStyle: e.target.value,
+            })
+          }
+        >
+          <option value="style1">Style 1</option>
+          <option value="style2">Style 2</option>
+          <option value="style3">Style 3</option>
         </select>
       </div>
 
