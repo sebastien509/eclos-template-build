@@ -19,17 +19,7 @@ const themes = {
     bg: "bg1",
     bgImage:
       "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-    glassStyle: {
-      background: "rgba(255,255,255,0.4)",
-      borderRadius: "10px",
-      border: "1px solid rgba(255,255,255,0.4)",
-      position: "relative",
-      color: "white",
-      zIndex: 1,
-      backdropFilter: "blur(10px)",
-      WebkitBackdropFilter: "blur(10px)",
-      boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
-    },
+   
   },
   "theme-2": {
     primary: "#ffffff",
@@ -41,17 +31,7 @@ const themes = {
     bg: "bg2",
     bgImage:
       "https://images.unsplash.com/vector-1743791782324-d310c20f41e3?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    glassStyle: {
-      background: "rgba(30,30,40,0.35)",
-      backdropFilter: "blur(25px)",
-      WebkitBackdropFilter: "blur(25px)",
-      borderRadius: "20px",
-      border: "1px solid rgba(255,255,255,0.12)",
-      boxShadow:
-        "0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(255,255,255,0.05), inset 0 0 2px 1px rgba(255,255,255,0.08)",
-      position: "relative",
-      overflow: "hidden",
-    },
+ 
   },
   "theme-3": {
     primary: "#2a2a72",
@@ -63,17 +43,7 @@ const themes = {
     bg: "bg3",
     bgImage:
       "https://images.unsplash.com/vector-1747069104000-d096a1c61a88?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    glassStyle: {
-      background: "rgba(255,255,255,0.08)",
-      backdropFilter: "blur(24px)",
-      WebkitBackdropFilter: "blur(24px)",
-      borderRadius: "20px",
-      border: "1px solid rgba(255,255,255,0.15)",
-      boxShadow:
-        "0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(255,255,255,0.05)",
-      position: "relative",
-      overflow: "hidden",
-    },
+   
   },
 };
 
@@ -96,6 +66,9 @@ const Template1 = ({
     about = "grid",
     layout = "grid",
     cardStyle = "style1",
+    border = "rounded-lg",
+    shadow = "shadow-md",
+    textSize = "text-base", 
   } = section_options;
   const themeStyle = themes[theme] || themes["theme-1"];
 
@@ -124,12 +97,14 @@ const Template1 = ({
   };
 
   const renderProjects = () => {
-
     return (
       <ProjectsSection
         layout={layout}
         cardStyle={cardStyle}
         portfolio={portfolio}
+        border={border}
+        shadow={shadow}
+        textSize={textSize}
       />
     );
   };

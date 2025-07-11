@@ -1,23 +1,16 @@
 import React from "react";
 
-const ProjectCardStyle1 = ({ project }) => {
+const ProjectCardStyle1 = ({
+  project,
+  border = "rounded-lg",
+  shadow = "shadow-md",
+  textSize = "text-md",
+}) => {
   if (!project) return null;
-
-  const cardStyle = {
-    background: "rgba(255,255,255,0.4)",
-    borderRadius: "10px",
-    border: "1px solid rgba(255,255,255,0.4)",
-    position: "relative",
-    color: "white",
-    backdropFilter: "blur(10px)",
-    WebkitBackdropFilter: "blur(10px)",
-    boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
-  };
 
   return (
     <div
-      className="card w-full md:w-80 shadow-xl hover:shadow-2xl transition-shadow duration-300"
-      style={cardStyle}
+      className={`card w-full ${border} ${shadow} hover:shadow-2xl transition-shadow duration-300 bg-white/40 backdrop-blur-sm border border-white/40`}
     >
       <figure className="relative">
         <img
@@ -36,8 +29,10 @@ const ProjectCardStyle1 = ({ project }) => {
         )}
       </figure>
       <div className="card-body">
-        <h3 className="card-title text-lg font-bold">{project.title}</h3>
-        <p className="text-sm opacity-80 mb-2">{project.description}</p>
+        <h3 className={`card-title font-bold mb-1 ${textSize}`}>
+          {project.title}
+        </h3>
+        <p className={`opacity-80 mb-2 ${textSize}`}>{project.description}</p>
         <div className="card-actions justify-end mt-2">
           {project.github_link && (
             <a

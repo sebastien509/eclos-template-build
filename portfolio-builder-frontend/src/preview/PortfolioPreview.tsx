@@ -10,6 +10,9 @@ const PortfolioPreview = () => {
     about: "card",
     layout: "grid",
     cardStyle: "style1",
+    border: "rounded-lg",
+    shadow: "shadow-md",
+    textSize: "text-base",
   });
 
   // You can use mockUser if you want to display user info somewhere
@@ -17,7 +20,7 @@ const PortfolioPreview = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex gap-4 justify-center items-center">
+      <div className="flex gap-4 justify-center items-center flex-wrap">
         <select value={theme} onChange={(e) => setTheme(e.target.value)}>
           <option value="theme-1">Theme 1</option>
           <option value="theme-2">Theme 2</option>
@@ -75,6 +78,38 @@ const PortfolioPreview = () => {
           <option value="style2">Style 2</option>
           <option value="style3">Style 3</option>
         </select>
+
+        <select
+          value={sectionOptions.border}
+          onChange={(e) =>
+            setSectionOptions({ ...sectionOptions, border: e.target.value })
+          }
+        >
+          <option value="rounded-lg">Rounded</option>
+          <option value="rounded-none">Square</option>
+        </select>
+
+        <select
+          value={sectionOptions.shadow}
+          onChange={(e) =>
+            setSectionOptions({ ...sectionOptions, shadow: e.target.value })
+          }
+        >
+          <option value="shadow-sm">Small Shadow</option>
+          <option value="shadow-md">Medium Shadow</option>
+          <option value="shadow-lg">Large Shadow</option>
+        </select>
+
+        <select
+          value={sectionOptions.textSize}
+          onChange={(e) =>
+            setSectionOptions({ ...sectionOptions, textSize: e.target.value })
+          }
+        >
+          <option value="text-sm">Small Text</option>
+          <option value="text-base">Medium Text</option>
+          <option value="text-lg">Large Text</option>
+        </select>
       </div>
 
       {/* Example usage of mockUser (optional): */}
@@ -84,11 +119,7 @@ const PortfolioPreview = () => {
         portfolio={MockPortfolioData}
         theme={theme}
         font={font}
-        section_options={{
-          ...sectionOptions,
-          projects: sectionOptions.layout,
-          projectStyle: sectionOptions.cardStyle,
-        }}
+        section_options={sectionOptions}
       />
     </div>
   );

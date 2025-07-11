@@ -2,6 +2,11 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  safelist: [
+    'layout-grid',
+    'layout-stack',
+    'layout-flex'
+  ],
   theme: {
     extend: {
       fontFamily: {

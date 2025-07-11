@@ -62,14 +62,6 @@ const MockPortfolioData = {
       github_link: "https://github.com/mockuser/chat-app",
       preview_image: "https://i.imgur.com/5lnO0jm.jpeg",
     },
-    {
-      id: 6,
-      title: "Expense Tracker",
-      description:
-        "A simple yet powerful expense tracking app for personal finance management.",
-      github_link: "https://github.com/mockuser/expense-tracker",
-      preview_image: "",
-    },
   ],
   skills: [
     { icon: Ai, name: "Ai" },
