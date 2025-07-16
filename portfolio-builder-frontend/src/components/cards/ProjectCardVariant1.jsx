@@ -1,7 +1,8 @@
 import React from "react";
 
-const ProjectCardStyle1 = ({
+const ProjectCardVariant1 = ({
   project,
+  style = "",
   border = "rounded-lg",
   shadow = "shadow-md",
   textSize = "text-md",
@@ -10,7 +11,7 @@ const ProjectCardStyle1 = ({
 
   return (
     <div
-      className={`card w-full ${border} ${shadow} hover:shadow-2xl transition-shadow duration-300 bg-white/40 backdrop-blur-sm border border-white/40`}
+      className={`card w-full ${style} ${border} ${shadow} hover:shadow-2xl transition-shadow duration-300`}
     >
       <figure className="relative">
         <img
@@ -50,4 +51,4 @@ const ProjectCardStyle1 = ({
   );
 };
 
-export default ProjectCardStyle1;
+export default ProjectCardVariant1;

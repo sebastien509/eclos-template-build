@@ -1,15 +1,16 @@
 import React from "react";
-import ProjectCardStyle1 from "./cards/ProjectCardStyle1";
-import ProjectCardStyle2 from "./cards/ProjectCardStyle2";
-import ProjectCardStyle3 from "./cards/ProjectCardStyle3";
+import ProjectCardVariant1 from "./cards/ProjectCardVariant1";
+import ProjectCardVariant2 from "./cards/ProjectCardVariant2";
+import ProjectCardVariant3 from "./cards/ProjectCardVariant3";
 
 const ProjectsSection = ({
   layout = "grid",
-  cardStyle = "style1",
+  variant = "variant1",
   portfolio,
   border = "rounded-lg",
   shadow = "shadow-md",
   textSize = "text-md",
+  style = "",
 }) => {
   const { projects = [] } = portfolio || {};
 
@@ -17,10 +18,16 @@ const ProjectsSection = ({
 
   const CardComponent =
     {
-      style1: ProjectCardStyle1,
-      style2: ProjectCardStyle2,
-      style3: ProjectCardStyle3,
-    }[cardStyle] || ProjectCardStyle1;
+      variant1: ProjectCardVariant1,
+      variant2: ProjectCardVariant2,
+      variant3: ProjectCardVariant3,
+    }[variant] || ProjectCardVariant1;
+
+  const cardStyleClasses = {
+    style1: "bg-white/40 backdrop-blur-sm border border-white/40",
+    style2: "bg-white/10 backdrop-blur-md border border-white/20",
+    style3: "bg-white/20 backdrop-blur-xl border border-white/20",
+  };
 
   return (
     <section className="w-full py-10">
@@ -30,6 +37,7 @@ const ProjectsSection = ({
           <CardComponent
             key={project.id || idx}
             project={project}
+            style={style}
             border={border}
             shadow={shadow}
             textSize={textSize}

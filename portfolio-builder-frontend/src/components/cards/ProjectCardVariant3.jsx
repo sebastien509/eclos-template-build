@@ -1,8 +1,9 @@
 import React from "react";
 
-const ProjectCardStyle3 = ({
+const ProjectCardVariant3 = ({
   project,
-  border = "rounded-2xl", 
+  style = "",
+  border = "rounded-2xl",
   shadow = "shadow-lg",
   textSize = "text-md",
 }) => {
@@ -10,7 +11,7 @@ const ProjectCardStyle3 = ({
 
   return (
     <div
-      className={`flex w-full bg-white/10 backdrop-blur-xl ${border} ${shadow} border border-white/20 relative overflow-hidden`}
+      className={`flex w-full relative overflow-hidden ${style} ${border} ${shadow}`}
     >
       {project.preview_image && (
         <div className="flex-shrink-0 h-48 flex items-center justify-center">
@@ -60,4 +61,4 @@ const ProjectCardStyle3 = ({
   );
 };
 
-export default ProjectCardStyle3;
+export default ProjectCardVariant3;

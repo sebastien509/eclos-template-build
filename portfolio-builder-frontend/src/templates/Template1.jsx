@@ -19,7 +19,6 @@ const themes = {
     bg: "bg1",
     bgImage:
       "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-   
   },
   "theme-2": {
     primary: "#ffffff",
@@ -31,7 +30,6 @@ const themes = {
     bg: "bg2",
     bgImage:
       "https://images.unsplash.com/vector-1743791782324-d310c20f41e3?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
- 
   },
   "theme-3": {
     primary: "#2a2a72",
@@ -43,7 +41,6 @@ const themes = {
     bg: "bg3",
     bgImage:
       "https://images.unsplash.com/vector-1747069104000-d096a1c61a88?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-   
   },
 };
 
@@ -53,6 +50,12 @@ const fontClasses = {
   "font-3": "font-mono",
   "font-4": "font-serif",
   "font-5": "font-lora",
+};
+
+const cardStyleClasses = {
+  style1: "bg-white/40 backdrop-blur-sm border border-white/40",
+  style2: "bg-gray-900/60 backdrop-blur-lg border border-gray-700",
+  style3: "bg-white/20 backdrop-blur-xl border border-white/20",
 };
 
 const Template1 = ({
@@ -66,9 +69,11 @@ const Template1 = ({
     about = "grid",
     layout = "grid",
     cardStyle = "style1",
+    variant = "variant1",
+    style = "",
     border = "rounded-lg",
     shadow = "shadow-md",
-    textSize = "text-base", 
+    textSize = "text-base",
   } = section_options;
   const themeStyle = themes[theme] || themes["theme-1"];
 
@@ -96,11 +101,30 @@ const Template1 = ({
     }
   };
 
+  let resolvedStyle = cardStyleClasses.style1;
+  switch (style) {
+    case "style1":
+      resolvedStyle = cardStyleClasses.style1;
+      break;
+    case "style2":
+      resolvedStyle = cardStyleClasses.style2;
+      break;
+    case "style3":
+      resolvedStyle = cardStyleClasses.style3;
+      break;
+    case "":
+      resolvedStyle = cardStyleClasses[cardStyle] || cardStyleClasses.style1;
+      break;
+    default:
+      resolvedStyle = style;
+  }
+
   const renderProjects = () => {
     return (
       <ProjectsSection
         layout={layout}
-        cardStyle={cardStyle}
+        variant={variant}
+        style={resolvedStyle}
         portfolio={portfolio}
         border={border}
         shadow={shadow}

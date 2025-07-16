@@ -9,7 +9,8 @@ const PortfolioPreview = () => {
     header: "variant1",
     about: "card",
     layout: "grid",
-    cardStyle: "style1",
+    variant: "variant1",
+    style: "",
     border: "rounded-lg",
     shadow: "shadow-md",
     textSize: "text-base",
@@ -69,13 +70,25 @@ const PortfolioPreview = () => {
         </select>
 
         <select
-          value={sectionOptions.cardStyle}
+          value={sectionOptions.variant}
           onChange={(e) =>
-            setSectionOptions({ ...sectionOptions, cardStyle: e.target.value })
+            setSectionOptions({ ...sectionOptions, variant: e.target.value })
           }
         >
+          <option value="variant1">Project Card Variant 1</option>
+          <option value="variant2">Project Card Variant 2</option>
+          <option value="variant3">Project Card Variant 3</option>
+        </select>
+
+        <select
+          value={sectionOptions.style}
+          onChange={(e) =>
+            setSectionOptions({ ...sectionOptions, style: e.target.value })
+          }
+        >
+          <option value="">Default Style</option>
           <option value="style1">Style 1</option>
-          <option value="style2">Style 2</option>
+          <option value="style2">Style 2 (Simple White)</option>
           <option value="style3">Style 3</option>
         </select>
 
