@@ -3,7 +3,7 @@ import Template1 from "../templates/Template1";
 import MockPortfolioData, { mockUser } from "../mock/MockPortfolioData";
 
 const PortfolioPreview = () => {
-  const [theme, setTheme] = useState("theme-1");
+  const [theme, setTheme] = useState("theme1");
   const [font, setFont] = useState("font-1");
   const [sectionOptions, setSectionOptions] = useState({
     header: "variant1",
@@ -23,9 +23,11 @@ const PortfolioPreview = () => {
     <div className="flex flex-col gap-4">
       <div className="flex gap-4 justify-center items-center flex-wrap">
         <select value={theme} onChange={(e) => setTheme(e.target.value)}>
-          <option value="theme-1">Theme 1</option>
-          <option value="theme-2">Theme 2</option>
-          <option value="theme-3">Theme 3</option>
+          <option value="theme1">Theme 1</option>
+          <option value="theme2">Theme 2</option>
+          <option value="theme3">Theme 3</option>
+          <option value="theme4">Theme 4</option>
+          <option value="theme5">Theme 5</option>
         </select>
 
         <select value={font} onChange={(e) => setFont(e.target.value)}>

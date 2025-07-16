@@ -9,37 +9,46 @@ import AboutSplit from "./layoutParts/abouts/AboutSplit";
 import ProjectsSection from "../components/ProjectsSection";
 
 const themes = {
-  "theme-1": {
-    primary: "#212529",
-    secondary: "#1f2937",
-    neutral: "#0b9b8a",
-    opps: "#d4f1f4",
-    text1: "#189ab4",
-    text2: "#ffffff",
-    bg: "bg1",
-    bgImage:
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-  },
-  "theme-2": {
-    primary: "#ffffff",
-    secondary: "#ffffff",
-    neutral: "#d0725e",
-    opps: "#198A5B",
+  theme1: {
+    primary: "#1e3c72",
+    secondary: "#2a5298",
     text1: "#ffffff",
     text2: "#ffffff",
-    bg: "bg2",
-    bgImage:
+    backgroundType: "gradient",
+    backgroundValue: "linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)",
+  },
+  theme2: {
+    primary: "#ff512f",
+    secondary: "#dd2476",
+    text1: "#ffffff",
+    text2: "#ffffff",
+    backgroundType: "gradient",
+    backgroundValue: "linear-gradient(135deg, #ff512f 0%, #dd2476 100%)",
+  },
+  theme3: {
+    primary: "#11998e",
+    secondary: "#38ef7d",
+    text1: "#ffffff",
+    text2: "#ffffff",
+    backgroundType: "gradient",
+    backgroundValue: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
+  },
+  theme4: {
+    primary: "#ffffff",
+    secondary: "#1f2937",
+    text1: "#ffffff",
+    text2: "#ffffff",
+    backgroundType: "image",
+    backgroundValue:
       "https://images.unsplash.com/vector-1743791782324-d310c20f41e3?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
-  "theme-3": {
+  theme5: {
     primary: "#2a2a72",
     secondary: "#009ffd",
-    neutral: "#2a9d8f",
-    opps: "#e9c46a",
-    text1: "#f4a261",
+    text1: "#ffffff",
     text2: "#ffffff",
-    bg: "bg3",
-    bgImage:
+    backgroundType: "image",
+    backgroundValue:
       "https://images.unsplash.com/vector-1747069104000-d096a1c61a88?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 };
@@ -60,7 +69,7 @@ const cardStyleClasses = {
 
 const Template1 = ({
   portfolio,
-  theme = "theme-1",
+  theme = "theme1",
   font = "font-1",
   section_options = {},
 }) => {
@@ -75,7 +84,7 @@ const Template1 = ({
     shadow = "shadow-md",
     textSize = "text-base",
   } = section_options;
-  const themeStyle = themes[theme] || themes["theme-1"];
+  const themeStyle = themes[theme] || themes.theme1;
 
   const glassStyle = themeStyle.glassStyle;
 
@@ -133,13 +142,19 @@ const Template1 = ({
     );
   };
 
+  let backgroundStyle = {};
+  if (themeStyle.backgroundType === "gradient") {
+    backgroundStyle.background = themeStyle.backgroundValue;
+  } else if (themeStyle.backgroundType === "image") {
+    backgroundStyle.backgroundImage = `url(${themeStyle.backgroundValue})`;
+    backgroundStyle.backgroundPosition = "center";
+  }
+  backgroundStyle.color = themeStyle.text2;
+
   return (
     <div
       className={`portfolio ${fontClasses[font]} p-6`}
-      style={{
-        background: `url(${themeStyle.bgImage})`,
-        color: themeStyle.text2,
-      }}
+      style={backgroundStyle}
     >
       {renderHeader()}
       {renderAbout()}
