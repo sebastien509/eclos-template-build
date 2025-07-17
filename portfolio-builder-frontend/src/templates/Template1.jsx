@@ -1,10 +1,15 @@
 import HeaderClassic from "./layoutParts/headers/HeaderClassic";
 import HeaderMinimal from "./layoutParts/headers/HeaderMinimal";
 import HeaderImageLeft from "./layoutParts/headers/HeaderImageLeft";
+import HeaderBanner from "./layoutParts/headers/HeaderBanner";
+import HeaderSidePanel from "./layoutParts/headers/HeaderSidePanel";
 
 import AboutGrid from "./layoutParts/abouts/AboutGrid";
 import AboutCard from "./layoutParts/abouts/AboutCard";
 import AboutSplit from "./layoutParts/abouts/AboutSplit";
+import AboutTimeline from "./layoutParts/abouts/AboutTabs";
+import AboutIconGrid from "./layoutParts/abouts/AboutIconGrid";
+import AboutTabs from "./layoutParts/abouts/AboutTabs";
 
 import ProjectsSection from "../components/ProjectsSection";
 
@@ -86,14 +91,16 @@ const Template1 = ({
   } = section_options;
   const themeStyle = themes[theme] || themes.theme1;
 
-  const glassStyle = themeStyle.glassStyle;
-
   const renderHeader = () => {
     switch (header) {
       case "variant2":
         return <HeaderMinimal data={portfolio} />;
       case "variant3":
         return <HeaderImageLeft data={portfolio} />;
+      case "banner":
+        return <HeaderBanner data={portfolio} />;
+      case "sidepanel":
+        return <HeaderSidePanel data={portfolio} />;
       default:
         return <HeaderClassic data={portfolio} />;
     }
@@ -102,11 +109,15 @@ const Template1 = ({
   const renderAbout = () => {
     switch (about) {
       case "card":
-        return <AboutCard data={portfolio} style={glassStyle} />;
+        return <AboutCard data={portfolio} />;
       case "split":
-        return <AboutSplit data={portfolio} style={glassStyle} />;
+        return <AboutSplit data={portfolio} />;
+      case "timeline":
+        return <AboutTabs data={portfolio} />;
+      case "icongrid":
+        return <AboutIconGrid data={portfolio} />;
       default:
-        return <AboutGrid data={portfolio} style={glassStyle} />;
+        return <AboutGrid data={portfolio} />;
     }
   };
 

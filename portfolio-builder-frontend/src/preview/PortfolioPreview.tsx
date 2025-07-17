@@ -47,6 +47,8 @@ const PortfolioPreview = () => {
           <option value="variant1">Classic Header</option>
           <option value="variant2">Minimal Header</option>
           <option value="variant3">Image Left Header</option>
+          <option value="banner">Banner Header</option>
+          <option value="sidepanel">Side Panel Header</option>
         </select>
 
         <select
@@ -58,6 +60,8 @@ const PortfolioPreview = () => {
           <option value="card">Card About</option>
           <option value="grid">Grid About</option>
           <option value="split">Split About</option>
+          <option value="timeline">Timeline About</option>
+          <option value="icongrid">Icon Grid About</option>
         </select>
 
         <select

@@ -14,6 +14,8 @@ const Tailwind =
   "https://res.cloudinary.com/dyeomcmin/image/upload/v1740687664/Tailwind_CSS_icbxd";
 
 const MockPortfolioData = {
+  name: "John Smith",
+  sector: "Software Engineer",
   header_image:
     "https://images.squarespace-cdn.com/content/v1/631ba8eed2196a6795698665/3690ca61-6a9d-4c93-a2a5-83a5f2aa1648/2022-08-16-Trinet-0540-Martinez-Juan.jpg?format=1000w",
   header_quote: "Innovating the future, one line of code at a time.",
