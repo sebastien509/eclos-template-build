@@ -115,11 +115,21 @@ const Template1 = ({
   const renderAbout = () => {
     switch (about) {
       case "card":
-        return <AboutCard data={portfolio} style={glassStyle} />;
-      case "split":
-        return <AboutSplit data={portfolio} style={glassStyle} />;
-      default:
-        return <AboutGrid data={portfolio} style={glassStyle} />;
+         return (
+        <AboutCard
+          data={portfolio}
+          style={glassStyle}
+          shapeClass={section_options.shape || "rounded-xl"}
+          shadowClass={section_options.shadow || "shadow-xl"}
+          layoutClass={section_options.layoutPos || "text-center"}
+          bgClass={section_options.bgClass || `bg-[${themeStyle.primary}]`}
+          fontClass={fontClasses[font]}
+          cardClass={section_options.cardClass || "py-24 px-8 max-w-3xl mx-auto"}
+          bodyClass={section_options.bodyClass || ""}
+          titleClass={section_options.titleClass || "card-title text-3xl"}
+          textClass={section_options.textClass || "text-lg leading-relaxed"}
+        />
+      );
     }
   };
 
