@@ -130,6 +130,22 @@ const Template1 = ({
           textClass={section_options.textClass || "text-lg leading-relaxed"}
         />
       );
+      case "grid":
+        return (
+        <AboutGrid
+          data={portfolio}
+          style={glassStyle}
+          containerClass={section_options.containerClass || "container mx-auto py-16"}
+          titleClass={section_options.titleClass || "text-3xl font-bold mb-12 text-center"}
+          gridClass={section_options.gridClass || "grid grid-cols-1 md:grid-cols-2 gap-8"}
+          cardClass={section_options.cardClass || "py-24 px-8 max-w-3xl mx-auto"}
+          bodyClass={section_options.bodyClass || "card-body"}
+          sectionTitleClass={section_options.sectionTitleClass || "card-title"}
+          textClass={section_options.textClass || "leading-relaxed"}
+          skillsContainerClass={section_options.skillsContainerClass || "flex flex-wrap gap-2"}
+          badgeClass={section_options.badgeClass || "badge badge-primary"}
+        />
+      );
     }
   };
 
