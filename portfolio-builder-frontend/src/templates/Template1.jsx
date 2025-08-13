@@ -115,11 +115,56 @@ const Template1 = ({
   const renderAbout = () => {
     switch (about) {
       case "card":
-        return <AboutCard data={portfolio} style={glassStyle} />;
+         return (
+        <AboutCard
+          data={portfolio}
+          style={glassStyle}
+          shapeClass={section_options.shape || "rounded-xl"}
+          shadowClass={section_options.shadow || "shadow-xl"}
+          layoutClass={section_options.layoutPos || "text-center"}
+          bgClass={section_options.bgClass || `bg-[${themeStyle.primary}]`}
+          fontClass={fontClasses[font]}
+          cardClass={section_options.cardClass || "py-24 px-8 max-w-3xl mx-auto"}
+          bodyClass={section_options.bodyClass || ""}
+          titleClass={section_options.titleClass || "card-title text-3xl"}
+          textClass={section_options.textClass || "text-lg leading-relaxed"}
+        />
+      );
+      case "grid":
+        return (
+        <AboutGrid
+          data={portfolio}
+          style={glassStyle}
+          containerClass={section_options.containerClass || "container mx-auto py-16"}
+          titleClass={section_options.titleClass || "text-3xl font-bold mb-12 text-center"}
+          gridClass={section_options.gridClass || "grid grid-cols-1 md:grid-cols-2 gap-8"}
+          cardClass={section_options.cardClass || "py-24 px-8 max-w-3xl mx-auto"}
+          bodyClass={section_options.bodyClass || "card-body"}
+          sectionTitleClass={section_options.sectionTitleClass || "card-title"}
+          textClass={section_options.textClass || "leading-relaxed"}
+          skillsContainerClass={section_options.skillsContainerClass || "flex flex-wrap gap-2"}
+          badgeClass={section_options.badgeClass || "badge badge-primary"}
+        />
+      );
       case "split":
-        return <AboutSplit data={portfolio} style={glassStyle} />;
-      default:
-        return <AboutGrid data={portfolio} style={glassStyle} />;
+      return (
+        <AboutSplit
+          data={portfolio}
+          style={glassStyle}
+          containerClass={section_options.containerClass || "container mx-auto py-16"}
+          gridClass={section_options.gridClass || "grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"}
+          leftTitleClass={section_options.leftTitleClass || "text-3xl font-bold mb-6"}
+          leftTextClass={section_options.leftTextClass || "text-lg leading-relaxed"}
+          cardClass={section_options.cardClass || "card bg-base-100 shadow-xl"}
+          bodyClass={section_options.bodyClass || "card-body"}
+          sectionTitleClass={section_options.sectionTitleClass || "card-title"}
+          listClass={section_options.listClass || "space-y-2"}
+          listItemClass={section_options.listItemClass || "flex items-center gap-2"}
+          badgeClass={section_options.badgeClass || "badge badge-primary badge-sm"}
+        />
+      );
+    default:
+      return null;
     }
   };
 
