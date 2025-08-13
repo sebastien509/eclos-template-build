@@ -146,6 +146,25 @@ const Template1 = ({
           badgeClass={section_options.badgeClass || "badge badge-primary"}
         />
       );
+      case "split":
+      return (
+        <AboutSplit
+          data={portfolio}
+          style={glassStyle}
+          containerClass={section_options.containerClass || "container mx-auto py-16"}
+          gridClass={section_options.gridClass || "grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"}
+          leftTitleClass={section_options.leftTitleClass || "text-3xl font-bold mb-6"}
+          leftTextClass={section_options.leftTextClass || "text-lg leading-relaxed"}
+          cardClass={section_options.cardClass || "card bg-base-100 shadow-xl"}
+          bodyClass={section_options.bodyClass || "card-body"}
+          sectionTitleClass={section_options.sectionTitleClass || "card-title"}
+          listClass={section_options.listClass || "space-y-2"}
+          listItemClass={section_options.listItemClass || "flex items-center gap-2"}
+          badgeClass={section_options.badgeClass || "badge badge-primary badge-sm"}
+        />
+      );
+    default:
+      return null;
     }
   };
 
