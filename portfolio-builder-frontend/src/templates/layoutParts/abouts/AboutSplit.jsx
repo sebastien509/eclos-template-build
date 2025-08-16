@@ -1,14 +1,14 @@
 import React from "react";
 
-const AboutSplit = ({ data, style }) => {
+const AboutSplit = ({ data, style, textSizeClass, shadowClass, borderClass }) => {
   return (
     <div className="container mx-auto py-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 className="text-3xl font-bold mb-6">About Me</h2>
+          <h2 className={`font-bold mb-6 ${textSizeClass}`}>About Me</h2>
           <p className="text-lg leading-relaxed">{data.about_text}</p>
         </div>
-        <div className="card bg-base-100 shadow-xl" style={style}>
+        <div className={`card bg-base-100 ${shadowClass} ${borderClass}`} style={style}>
           <div className="card-body">
             <h3 className="card-title">Quick Facts</h3>
             <ul className="space-y-2">
