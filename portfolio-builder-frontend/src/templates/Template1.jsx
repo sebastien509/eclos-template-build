@@ -77,6 +77,37 @@ const themes = {
   },
 };
 
+const textSizeClasses = {
+  "text-1": "text-sm",
+  "text-2": "text-base",
+  "text-3": "text-lg",
+  "text-4": "text-xl",
+  "text-5": "text-2xl",
+  "text-6": "text-3xl",
+  "text-7": "text-4xl",
+  "text-8": "text-5xl",
+};
+
+const shadowClasses = {
+  "shadow-1": "shadow-sm",
+  "shadow-2": "shadow",
+  "shadow-3": "shadow-md",
+  "shadow-4": "shadow-lg",
+  "shadow-5": "shadow-xl",
+  "shadow-6": "shadow-2xl",
+  "shadow-none": "shadow-none",
+};
+
+const borderClasses = {
+  "border-1": "rounded-sm",
+  "border-2": "rounded",
+  "border-3": "rounded-md",
+  "border-4": "rounded-lg",
+  "border-5": "rounded-xl",
+  "border-6": "rounded-2xl",
+  "border-full": "rounded-full",
+};
+
 const fontClasses = {
   "font-1": "font-sans",
   "font-2": "font-poppins",
@@ -96,8 +127,15 @@ const Template1 = ({
     about = "grid",
     layout = "grid",
     cardStyle = "style1",
+    textSize = "text-6",    
+    shadow = "shadow-5",      
+    border = "border-5", 
   } = section_options;
   const themeStyle = themes[theme] || themes["theme-1"];
+  
+  const textSizeClass = textSizeClasses[textSize];
+  const shadowClass = shadowClasses[shadow];
+  const borderClass = borderClasses[border];
 
   const glassStyle = themeStyle.glassStyle;
 
@@ -115,13 +153,37 @@ const Template1 = ({
   const renderAbout = () => {
     switch (about) {
       case "card":
-        return <AboutCard data={portfolio} style={glassStyle} />;
+        return (
+          <AboutCard
+            data={portfolio}
+            style={glassStyle}
+            textSizeClass={textSizeClass}
+            shadowClass={shadowClass}
+            borderClass={borderClass}
+          />
+        );
       case "split":
-        return <AboutSplit data={portfolio} style={glassStyle} />;
+        return (
+          <AboutSplit
+            data={portfolio}
+            style={glassStyle}
+            textSizeClass={textSizeClass}
+            shadowClass={shadowClass}
+            borderClass={borderClass}
+          />
+        );
       default:
-        return <AboutGrid data={portfolio} style={glassStyle} />;
+        return (
+          <AboutGrid
+            data={portfolio}
+            style={glassStyle}
+            textSizeClass={textSizeClass}
+            shadowClass={shadowClass}
+            borderClass={borderClass}
+          />
+        );
     }
-  };
+};
 
   const renderProjects = () => {
 
@@ -130,13 +192,16 @@ const Template1 = ({
         layout={layout}
         cardStyle={cardStyle}
         portfolio={portfolio}
+        textSizeClass={textSizeClass}
+        shadowClass={shadowClass}
+        borderClass={borderClass}
       />
     );
   };
 
   return (
     <div
-      className={`portfolio ${fontClasses[font]} p-6`}
+      className={`portfolio ${fontClasses[font]} ${textSizeClass} ${shadowClass} ${borderClass} p-6`}
       style={{
         background: `url(${themeStyle.bgImage})`,
         color: themeStyle.text2,
